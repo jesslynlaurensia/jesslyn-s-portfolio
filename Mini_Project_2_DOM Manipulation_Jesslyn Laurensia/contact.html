@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interested to Hire? Or Anything? Ask First! :D</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/responsive.css">
+   <link rel="stylesheet" href="css/color-1.css">
+   <link rel="stylesheet" href="css/style.switcher.css">
+   <link rel="stylesheet" href="css/color-1.css" class="alternate-style" title="color-1" disabled>
+   <link rel="stylesheet" href="css/color-2.css" class="alternate-style" title="color-2" disabled>
+   <link rel="stylesheet" href="css/color-3.css" class="alternate-style" title="color-3" disabled>
+
+</head>
+<body>
+    
+<!-- navbar section starts  -->
+
+<nav class="navbar">
+    <a href="home.html"> <i class="fas fa-home"></i> <span>home</span> </a>
+    <a href="about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
+    <a href="contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
+</nav>
+
+<!-- navbar section ends -->
+
+<!-- style switcher ends -->
+<div class="style-switcher">
+    <div class="style-switcher-toggler s-icon">
+        <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <h4>Theme Colors</h4>
+    <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+    </div>
+</div>
+
+<!-- style switcher ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact">
+
+<h1 class="heading"> contact <span>me</span> </h1>
+
+<div class="row">
+
+    <div class="info-container">
+
+        <h1>get in touch</h1>
+
+        <p>"You can design & create, & build the most wonderful place in the world. But it takes people to make the dream a reality." -Walt Disney</p>
+
+        <div class="box-container">
+
+            <div class="box">
+                <i class="fas fa-map"></i>
+                <div class="info">
+                    <h3>address :</h3>
+                    <p>bandung, west java, indonesia</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-envelope"></i>
+                <div class="info">
+                    <h3>email :</h3>
+                    <p>jesslynlaurensia@gmail.com</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="share">
+            <a href="https://instagram.com/jesslynlaurensia" class="fab fa-instagram"></a>
+            <a href="https://www.linkedin.com/in/jesslynlaurensia" class="fab fa-linkedin"></a>
+            <a href="https://wa.me/6289506567060" class="fab fa-whatsapp"></a>
+        </div>
+
+    </div>
+
+    <form action="/" method="GET" class="modal-form" id="form">
+
+        <div class="form-validation">
+            <input type="text" class="modal-input" placeholder="your name" id="name" name="name">
+            <p>Error Message</p>
+        </div>
+        <div class="form-validation">
+            <input type="number" class="modal-input" placeholder="your number" id="number" name="number">
+            <p>Error Message</p>
+        </div>
+        <div class="form-validation">
+            <input type="email" class="modal-input" placeholder="your email" id="email" name="email">
+            <p>Error Message</p>
+        </div>
+        <div class="form-validation">
+            <input type="text" class="modal-input" placeholder="your subject" id="subject" name="subject">
+            <p>Error Message</p>
+        </div>
+
+        <textarea placeholder="your message" id="" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="send message" class="modal-input-btn" id="submit" name="submit" onclick="openPopup()">
+        <div class="popup" id="popup">
+            <img src="Tick.png">
+            <h2>Thank you!</h2>
+            <p>Your message has been successfully submitted. Thanks!</p>
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+//Form Validation
+const form = document.getElementById('form');
+const name = document.getElementById('name');
+const number = document.getElementById('number');
+const email = document.getElementById('email');
+const subject = document.getElementById('subject');
+
+//show error message
+function showError(input, message) {
+    const formValidation = input.parentElement;
+    formValidation.classList.add('error');
+
+    const errorMessage = formValidation.querySelector('p');
+    errorMessage.innerText = message;
+}
+
+//Show valid message
+function showValid(input) {
+    const formValidation = input.parentElement;
+    formValidation.classList.add('valid');
+}
+
+//popup
+let popup = document.getElementById("popup");
+
+function openPopup(){
+    popup.classList.add("open-popup");
+}
+
+function closePopup(){
+    popup.classList.remove("open-popup");
+}
+
+//Check required fields
+function checkRequired(inputArr) {
+    inputArr.forEach(function (input) {
+        input.parentElement.classList.remove('valid')
+        input.parentElement.classList.remove('error')
+        if(input.value.trim() === '') {
+            showError(input, `Kindly let me know your ${getFieldName(input)}`);
+        } else {
+            showValid(input);
+        }
+    })
+}
+
+//Get Fieldname
+function getFieldName(input) {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+//Event Listeners
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    checkRequired([name, number, email, subject]);
+})
+
+form.addEventListener('popup', (e) => {
+    e.preventDefault();
+    checkRequired([name, number, email, subject]);
+})
+
+</script>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- custom js file link  -->
+    <script src="style-switcher.js"></script>
+
+</body>
+</html>

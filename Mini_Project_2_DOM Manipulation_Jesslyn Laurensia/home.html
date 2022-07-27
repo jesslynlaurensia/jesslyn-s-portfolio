@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeje's Home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/responsive.css">
+   <link rel="stylesheet" href="css/color-1.css">
+   <link rel="stylesheet" href="css/style.switcher.css">
+   <link rel="stylesheet" href="css/color-1.css" class="alternate-style" title="color-1" disabled>
+   <link rel="stylesheet" href="css/color-2.css" class="alternate-style" title="color-2" disabled>
+   <link rel="stylesheet" href="css/color-3.css" class="alternate-style" title="color-3" disabled>
+   
+</head>
+<body>
+    
+<!-- navbar section starts  -->
+
+<nav class="navbar">
+    <a href="home.html"> <i class="fas fa-home"></i> <span>home</span> </a>
+    <a href="about.html"> <i class="fas fa-user"></i> <span>about</span> </a>
+    <a href="contact.html"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
+</nav>
+
+<!-- navbar section ends -->
+
+<!-- home section starts  -->
+
+<section class="home">
+
+    <div class="image">
+        <img src="IMG_5892.jpg" alt="">
+    </div>
+
+    <div class="content">
+        <h3>Hi, I am Jesslyn Laurensia</h3>
+        <span id="occupation">Associate Product Manager</span>
+        <p>Hello! You can call me Jeje.</p>
+        <p>Go check my nav bar to get to know me better!</p> 
+        <p>See you on another pages!</p>
+        <a href="about.html" class="btn"> let's go! <i class="fas fa-user"></i> </a>
+    </div>
+
+    <script>
+        const text = document.getElementById('occupation');
+
+        const textLoad = () => {
+            setTimeout(() => {
+                text.textContent = "Associate Product Manager";
+            }, 0);
+            setTimeout(() => {
+                text.textContent = "FrontEnd Developer";
+            }, 4000);
+        }
+
+        textLoad();
+        setInterval(textLoad, 8000);
+    </script>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- style switcher starts -->
+
+<div class="style-switcher">
+    <div class="style-switcher-toggler s-icon">
+        <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <h4>Theme Colors</h4>
+    <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+    </div>
+</div>
+
+<!-- style switcher ends -->
+
+<!-- custom js file link  -->
+<script src="index.js"></script>
+<script src="style-switcher.js"></script>
+
+</body>
+</html>
